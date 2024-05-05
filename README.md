@@ -8,8 +8,12 @@
    
 3. npm install inside project directory
 
+4. If any issue regarding TYpescript
 
-4. npm start or ng serve
+       Install tyepscript using     npm install typescript@4.4.2
+
+
+6. npm start or ng serve
   serve: localhost:4200
 
   //Below instruction as of now you can ignore
