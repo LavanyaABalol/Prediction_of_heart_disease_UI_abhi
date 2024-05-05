@@ -1,0 +1,105 @@
+
+  <div *ngIf="prediction">
+    <p>Prediction: {{ prediction.predictions }}</p>
+  </div>
+  <div class="report-data">
+    <div class="header">
+      <h2>Enter Patient report data</h2>
+    </div>
+    
+    <form   [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="cp">Chest Pain level as per report[0-3]- cp*</label>
+        <input type="text" id="cp" name="cp"  formControlName="cp">
+        <div class="error-message" *ngIf="form.get('cp').hasError('invalidNumber') && form.get('cp').touched">
+          Only Valid cp must be within [0-3] range.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="age">Age*</label>
+        <input type="text" id="age" name="age" formControlName="age">
+      </div>
+      <div class="form-group">
+        <label for="gender">Gender*</label>
+        <select id="sex" name="sex" formControlName="sex" >
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="trestbps">Resting blood pressure- trestbps*</label>
+        <input type="text" id="trestbps" name="trestbps" formControlName="trestbps">
+        <div class="error-message" *ngIf="form.get('trestbps').hasError('invalidNumber') && form.get('trestbps').touched">
+          Only numbers are allowed
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="chol">The serum cholesterol level-chol*</label>
+        <input type="text" id="chol" name="chol" formControlName="chol">
+        <div class="error-message" *ngIf="form.get('chol').hasError('invalidNumber') && form.get('chol').touched">
+          Only numbers are allowed
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="fbs">the fasting blood sugar (1 if > 120 mg/dl, otherwise 0)*</label>
+        <input type="number" id="fbs" name="fbs" formControlName="fbs">
+        <div class="error-message" *ngIf="form.get('fbs').hasError('invalidNumber') && form.get('fbs').touched">
+          Only 1 or 0 allowed, Enter 1 if fasting blood sugar  > 120 mg/dl, otherwise 0.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="restecg">Resting electrocardiographic results (0-2) -restecg*</label>
+        <input type="text" id="restecg" name="restecg" formControlName="restecg">
+        <div class="error-message" *ngIf="form.get('restecg').hasError('invalidNumber') && form.get('restecg').touched">
+          Only Valid Resting electrocardiographic results  must be within [0-2] range.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="thalach">The maximum heart rate achieved: thalach*</label>
+        <input type="text" id="thalach" name="thalach" formControlName="thalach">
+        <div class="error-message" *ngIf="form.get('thalach').hasError('invalidNumber') && form.get('thalach').touched">
+          Only numbers are allowed
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="exang">Exercise induced angina (1 for yes, 0 for no):exang*</label>
+        <input type="text" id="exang" name="exang" formControlName="exang"  >
+        <div class="error-message" *ngIf="form.get('exang').hasError('invalidNumber') && form.get('exang').touched">
+          Only 1 or 0 allowed, Enter 1 if Exercise induced angina, otherwise 0.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="oldpeak">The ST depression induced by exercise relative to rest:oldpeak*</label>
+        <input type="number" id="oldpeak" name="oldpeak" formControlName="oldpeak">
+        <div class="error-message" *ngIf="form.get('oldpeak').hasError('invalidNumber') && form.get('oldpeak').touched">
+          Only numbers are allowed
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="slope">The slope of the peak exercise ST segment [0-2]: slope*</label>
+        <input type="text" id="slope" name="slope" formControlName="slope" >
+        <div class="error-message" *ngIf="form.get('slope').hasError('invalidNumber') && form.get('slope').touched">
+          Only Valid slope of the peak exercise ST segment  must be within [0-2] range.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="ca">The number of major vessels colored by fluoroscopy (0-3): ca*</label>
+        <input type="text" id="ca" name="ca" formControlName="ca" >
+        <div class="error-message" *ngIf="form.get('ca').hasError('invalidNumber') && form.get('ca').touched">
+          Only Valid number of major vessels colored by fluoroscopy must be within [0-3] range.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="thal">The thalassemia type (0-3): thal*</label>
+        <input type="text" id="thal" name="thal" formControlName="thal">
+        <div class="error-message" *ngIf="form.get('thal').hasError('invalidNumber') && form.get('thal').touched">
+          Only Valid  thalassemia type  must be within [0-3] range.
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" [disabled]="form.invalid">Predict</button>
+        <button type="button" class="reset" (click)="resetForm()">Reset</button>
+      </div>
+    </form>
+  </div>
+  
