@@ -1,5 +1,12 @@
 # PredictHeartDisease
 
+1.Install Angular CLI: 13.1.0
+2. Install Node: 16.13.1
+3. npm install inside project directory
+4. npm start or ng serve
+  serve: localhost:4200
+
+  //Below instruction as of now you can ignore
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.0.
 
 ## Development server
