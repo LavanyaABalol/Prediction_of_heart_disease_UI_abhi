@@ -6,14 +6,22 @@
 2. Install Node: 16.13.1
 
    
-3. npm install inside project directory
+3. inside project directory run
 
-4. If any issue regarding TYpescript
+       npm install
+
+5. If any issue regarding TYpescript
 
        Install tyepscript using     npm install typescript@4.4.2
 
 
-6. npm start or ng serve
+6. To run application
+
+       npm start
+
+       or
+
+       ng serve
   serve: localhost:4200
 
   //Below instruction as of now you can ignore
